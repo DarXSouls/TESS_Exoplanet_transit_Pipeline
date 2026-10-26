@@ -1,0 +1,14 @@
+# Core data and astronomy
+numpy>=1.24
+pandas>=2.0
+astropy>=5.3
+lightkurve>=2.4
+pyarrow>=12.0
+wotan>=1.10
+tqdm>=4.65
+scipy>=1.10
+
+# Notebooks and diagnostics
+matplotlib>=3.7
+jupyterlab>=4.0
+ipykernel>=6.25
