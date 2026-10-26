@@ -14,22 +14,49 @@ The scientific goal is to help distinguish plausible planetary transits from noi
 - **Batch workflow:** records download/preprocessing status in the master catalog and writes logs for batch processing.
 - **Notebook-based exploration:** documents the ingestion workflow and demonstrates individual and batch preprocessing, registry/selector use, and basic diagnostic plots.
 
-## Pipeline overview
+
+## Pipeline Architecture
 
 ```mermaid
 flowchart TD
-    A[Public TOI and EB catalogs] --> B[Catalog standardization]
-    B --> C[Master catalog and label/conflict resolution]
-    D[TESS observations via Lightkurve] --> E[Raw FITS + extracted Parquet + JSON metadata]
+    %% Catalog preparation
+    subgraph CAT["Catalog Preparation"]
+        A["Public TOI and EB Catalogs"]
+        B["Catalog Standardization"]
+        C["Master Catalog"]
+        A --> B --> C
+    end
+
+    %% Data ingestion
+    D["TESS Observations"]
+
+    E["Raw FITS Files and Metadata"]
+
     C --> E
-    E --> F[Validation and quality filtering]
-    F --> G[Flux selection and normalization]
-    G --> H[Sector-wise detrending]
-    H --> I[Prepared light curves and preprocessing metadata]
-    I -. planned downstream stage .-> J[BLS transit search]
-    J -. planned downstream stage .-> K[Feature extraction and candidate classification]
-    K -. planned downstream stage .-> L[Transit fitting and false-positive vetting]
+    D --> E
+
+    %% Light-curve processing
+    subgraph PROC["Light-Curve Processing"]
+        F["Data Validation and Quality Checks"]
+        G["Flux Selection and Normalization"]
+        H["Sector-Wise Detrending"]
+        I["Prepared Light Curves"]
+
+        F --> G --> H --> I
+    end
+
+    E --> F
+
+    %% Styling
+    classDef input fill:#e8f1ff,stroke:#4776b8,color:#172b4d,stroke-width:1.5px
+    classDef process fill:#f4f5f7,stroke:#6b778c,color:#172b4d,stroke-width:1.2px
+    classDef output fill:#e3fcef,stroke:#36b37e,color:#064b35,stroke-width:1.5px
+
+    class A,D input
+    class B,C,E,F,G,H process
+    class I output
 ```
+
 
 The dotted downstream stages describe the intended direction of the project; they should not be interpreted as completed end-to-end functionality in this repository snapshot.
 
