@@ -66,8 +66,8 @@ Python 3.10+ is recommended. Use a virtual environment so the project dependenci
 Replace the URL with your GitHub repository URL after creating the repository.
 
 ```bash
-git clone https://github.com/<YOUR-USERNAME>/<YOUR-REPOSITORY>.git
-cd <YOUR-REPOSITORY>
+git clone https://github.com/DarXSouls/TESS_Exoplanet_transit_Pipeline.git
+cd TESS_Exoplanet_transit_Pipeline
 ```
 
 ### 2. Create and activate an environment
@@ -144,9 +144,6 @@ Generated data, local environments, bytecode, and notebook checkpoints are exclu
 
 This is an evolving research codebase, not yet a packaged release. The current snapshot has no automated test suite, no committed example dataset, and no complete end-to-end transit-classification command. Example paths and IDs in the notebooks may require editing. Validation claims in the development notes are preserved for context but are not independently reproducible from the source files included in this snapshot.
 
-## License
-
-No license file is included yet. Add a license before presenting the repository as open source so that reuse permissions are explicit.
 
 ## Acknowledgements
 
