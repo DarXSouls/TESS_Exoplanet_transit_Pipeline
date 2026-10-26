@@ -17,30 +17,9 @@ The scientific goal is to help distinguish plausible planetary transits from noi
 
 ## Pipeline Architecture
 
-```mermaid
-flowchart TD
-    A["Public TOI and Eclipsing Binary Catalogs"]
-    B["Catalog Standardization"]
-    C["Master Catalog"]
-    D["TESS Observations"]
-    E["Raw FITS Files and Metadata"]
-    F["Data Validation and Quality Checks"]
-    G["Flux Selection and Normalization"]
-    H["Sector-Wise Detrending"]
-    I["Prepared Light Curves"]
+![TESS Exoplanet Transit Pipeline](docs/pipeline_architecture.svg)
 
-    A --> B --> C
-    C --> E
-    D --> E
-    E --> F --> G --> H --> I
-
-    style A fill:#e8eef7,stroke:#526d91,color:#172b4d
-    style D fill:#e8eef7,stroke:#526d91,color:#172b4d
-    style I fill:#d9f2e6,stroke:#32805a,color:#174b35
-```
-
-
-The dotted downstream stages describe the intended direction of the project; they should not be interpreted as completed end-to-end functionality in this repository snapshot.
+*The dashed section indicates planned stages that are under development.*
 
 ## Repository structure
 
