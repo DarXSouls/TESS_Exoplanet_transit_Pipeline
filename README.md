@@ -17,6 +17,9 @@ The scientific goal is to help distinguish plausible planetary transits from noi
 
 ## Pipeline Architecture
 
+![TESS Exoplanet Transit Pipeline](docs/pipeline_architecture_full.svg)
+
+*Solid borders indicate the current workflow; the dashed section shows planned stages under development.*
 
 
 ## Repository structure
