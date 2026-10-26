@@ -19,42 +19,24 @@ The scientific goal is to help distinguish plausible planetary transits from noi
 
 ```mermaid
 flowchart TD
-    %% Catalog preparation
-    subgraph CAT["Catalog Preparation"]
-        A["Public TOI and EB Catalogs"]
-        B["Catalog Standardization"]
-        C["Master Catalog"]
-        A --> B --> C
-    end
-
-    %% Data ingestion
+    A["Public TOI and Eclipsing Binary Catalogs"]
+    B["Catalog Standardization"]
+    C["Master Catalog"]
     D["TESS Observations"]
-
     E["Raw FITS Files and Metadata"]
+    F["Data Validation and Quality Checks"]
+    G["Flux Selection and Normalization"]
+    H["Sector-Wise Detrending"]
+    I["Prepared Light Curves"]
 
+    A --> B --> C
     C --> E
     D --> E
+    E --> F --> G --> H --> I
 
-    %% Light-curve processing
-    subgraph PROC["Light-Curve Processing"]
-        F["Data Validation and Quality Checks"]
-        G["Flux Selection and Normalization"]
-        H["Sector-Wise Detrending"]
-        I["Prepared Light Curves"]
-
-        F --> G --> H --> I
-    end
-
-    E --> F
-
-    %% Styling
-    classDef input fill:#e8f1ff,stroke:#4776b8,color:#172b4d,stroke-width:1.5px
-    classDef process fill:#f4f5f7,stroke:#6b778c,color:#172b4d,stroke-width:1.2px
-    classDef output fill:#e3fcef,stroke:#36b37e,color:#064b35,stroke-width:1.5px
-
-    class A,D input
-    class B,C,E,F,G,H process
-    class I output
+    style A fill:#e8eef7,stroke:#526d91,color:#172b4d
+    style D fill:#e8eef7,stroke:#526d91,color:#172b4d
+    style I fill:#d9f2e6,stroke:#32805a,color:#174b35
 ```
 
 
